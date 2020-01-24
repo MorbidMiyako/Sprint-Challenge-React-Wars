@@ -10,8 +10,11 @@ export default function MainPage() {
   const [content, setContent] = useState([])
 
   useEffect(() => {
+    console.log("using useEffect")
+    console.log("this is page variable", page)
+
     axios
-      .get(`${page}`)
+      .get(page)
       .then(response => {
         console.log(response)
 
@@ -20,7 +23,7 @@ export default function MainPage() {
       })
       .catch(error => console.log(error))
 
-  }, []);
+  }, [page]);
 
   if (page === "https://swapi.co/api/people" /*|| page=="people/?/page=w"*/) {
     console.log("im throwing this into People.js", content.results)
@@ -28,7 +31,7 @@ export default function MainPage() {
       <People people={content.results} />
     )
   }
-  if (content.heigth != null) {
+  else if (content.heigth != null) {
     console.log("im throwing this into Person.js", content)
     return (
       <Person person={content} />
