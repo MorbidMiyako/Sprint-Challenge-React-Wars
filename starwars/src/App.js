@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import People from "./components/People"
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -10,9 +10,12 @@ const App = () => {
   // sync up with, if any.
 
   return (
-    <div className="App">
-      <h1 className="Header">React Wars</h1>
-    </div>
+    <>
+      <div className="App">
+        <h1 className="Header">React Wars</h1>
+      </div>
+      <People />
+    </>
   );
 }
 
