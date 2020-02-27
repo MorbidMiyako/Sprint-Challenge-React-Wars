@@ -3,11 +3,12 @@ import axios from "axios"
 import styled from "styled-components"
 import People from "./People/People"
 import Person from "./Person/Person"
+import DummyData from "../DummyData"
 // import subcomponents
 export default function MainPage() {
 
   const [page, setPage] = useState('https://swapi.co/api/people');
-  const [content, setContent] = useState([])
+  const [content, setContent] = useState([DummyData])
 
   useEffect(() => {
     console.log("using useEffect")
@@ -25,7 +26,7 @@ export default function MainPage() {
 
   }, [page]);
 
-  if (page === "https://swapi.co/api/people" /*|| page=="people/?/page=w"*/) {
+  if (page == "https://swapi.co/api/people" /*|| page=="people/?/page=w"*/) {
     console.log("im throwing this into People.js", content.results)
     return (
       <People people={content.results} />
